@@ -1,17 +1,22 @@
-import { useState } from 'react'
-import LoginIcon from '@mui/icons-material/Login';
-import SearchIcon from '@mui/icons-material/Search';
+import { useState} from 'react'
+import Navbar from './components/Navbar';
+import RecipeCard from './components/RecipeCard';
 
 
 function App() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [count , setCount]= useState('')
+  const [loading, setLoading]=useState(false)
 
   const handleSearch = async () => {
   const API_URL = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=cb5b382d&app_key=aa55b4dfb894f52b9c9ff436fe9e57fc&to=10`;
 
   try {
+    setLoading(true)
+    setResults([])
+    setCount([])
+
     const response = await fetch(API_URL);
     const data = await response.json();
     console.log(data);
@@ -19,33 +24,41 @@ function App() {
     setCount(data.count);
   } catch (error) {
     console.error(error);
+  } finally{
+    setLoading(false)
   }
+
 };
+
+  const handleEnterSearch=(e)=>{
+    if(e.key === 'Enter'){
+      handleSearch();
+    }
+  }
+
+  const onChangeHandler=(e)=>{
+      setQuery(e.target.value)
+  }
+
 
   return (
     <div>
-      <div className='navBar'>
-      <h1>RECIPES</h1>
-      <div className="searchBar">
-      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-      <button onClick={handleSearch}><SearchIcon /></button>
-      </div>
-      <button className='loginBtn'><LoginIcon /></button>
-      </div>
-      {results.length > 0 && (
-        <ul>
-          {results.map((result) => (
-            <li key={result.recipe.uri}>
-              <pre>
-                {result.recipe.label}
-              </pre>
-            </li>
-          ))}
-        </ul>
-      )}
-      {count === 0 && (
-        <div className='empty'>No Recipes Found</div>
-      )}
+      
+    <Navbar
+       query={query}
+       onChangeHandler={onChangeHandler}
+       handleEnterSearch={handleEnterSearch}
+       handleSearch={handleSearch}
+    />
+
+    <div className='main__content'>
+      <RecipeCard
+         loading={loading}
+         results={results}
+         count={count}
+      />
+    </div>
+
     </div>
   );
 }

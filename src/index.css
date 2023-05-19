@@ -10,15 +10,21 @@ body{
 }
 
 .navBar{
+    padding: 15px 20px;
+    background-color: #1167b1;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.navBar__container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #f0ead6;
 }
 
-.navBar h1{
-    color: #4ef542;
+.navBar__container h1{
+    color: #d0efff;
 }
 
 .searchBar{
@@ -29,7 +35,7 @@ body{
 .searchBar input{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    padding: 0px 10px;
+    padding: 0px 15px;
     width: 300px;
     outline: none;
     border: none;
@@ -45,14 +51,89 @@ body{
 button{
     outline: none;
     border: none;
-    padding: 5px 10px;
-    background-color: #4ef542;
+    padding: 10px;
+    background-color: #03254c;
     color: #fff;
     cursor: pointer;
 }
 
+.loginBtn button {
+    margin-left: 10px;
+    border-radius: 5px;
+  }
+
 .empty{
     text-align: center;
     font-size: 30px;
-    margin-top: 50px;
+}
+
+.main__content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.recipe__card {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+
+.recipe__card__content:hover{
+    transform: scale(1.04);
+}
+
+.recipe__title:hover{
+  color: #1167b1;
+}
+
+@media screen and (max-width: 481px) {
+    .navBar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 20px;
+    }
+
+    .navBar__container{
+        position: relative;
+        display: inline-block;
+    }
+
+    .navBar h1{
+          font-size: 26px;
+          margin-top: 5px;
+    }
+    .loginBtn{
+        margin: 5px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+    .loginBtn button{
+        padding: 5px;
+    }
+
+    .searchBar{
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .main__content{
+        padding-top: 150px;
+    }
+
+    .recipe__card{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 900px){
+      
+    .recipe__card {
+            grid-template-columns: repeat(2,1fr);
+            gap: 100px;
+        }
 }
