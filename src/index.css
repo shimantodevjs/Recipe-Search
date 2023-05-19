@@ -84,8 +84,21 @@ button{
     transform: scale(1.04);
 }
 
+.recipe__title{
+    color: black;
+}
 .recipe__title:hover{
   color: #1167b1;
+}
+
+.no-visited-link:visited {
+    color: black;
+}
+
+.recipePage__content{
+         display: flex;
+         align-items: center;
+         justify-content: center;
 }
 
 @media screen and (max-width: 481px) {

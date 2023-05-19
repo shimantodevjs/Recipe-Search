@@ -1,17 +1,25 @@
 import React from 'react'
 import { CardContent, Typography, CardMedia } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const RecipeCard = ({loading,results,count}) => {
   return (
     <div>
       {loading && <img src='https://media.tenor.com/wfEN4Vd_GYsAAAAC/loading.gif' className='empty'></img>}
-      {results.length > 0 && (
+      {!loading && count === 0 && <div className='empty'>No Recipes Found</div>}
+      {!loading && count > 0 && (
         <div
           className='recipe__card'
         >
           {results.map((result) => (
+             <Link to={`/recipepage/${encodeURIComponent(result.recipe.uri)}`}
+                    style={{
+                             textDecoration:'none',
+                          }}
+                    className="no-visited-link"
+                    key={result.recipe.uri}
+              >
             <CardContent 
-                   key={result.recipe.uri}
                     sx={{
                            width:'300px',
                            border:'1px solid rgba(181, 183, 186,0.5)',
@@ -24,7 +32,6 @@ const RecipeCard = ({loading,results,count}) => {
             >
 
               <CardMedia component='img' src={result.recipe.image} />
-
               <Typography 
                   variant="body1" 
                   component="div"
@@ -55,12 +62,12 @@ const RecipeCard = ({loading,results,count}) => {
                <Typography 
                   variant="body1" 
                   component="div"
-                  className='recipe__title'
                   sx={{
                     textAlign:'center',
                     marginTop:'5px',
                     fontSize:'12px',
-                    fontFamily: 'Poppins'
+                    fontFamily: 'Poppins',
+                    color:'black'
                   }}
               >
                 {result.recipe.calories.toFixed(2)} calories
@@ -76,12 +83,12 @@ const RecipeCard = ({loading,results,count}) => {
               <Typography 
                   variant="body1" 
                   component="div"
-                  className='recipe__title'
                   sx={{
                     textAlign:'center',
                     marginTop:'5px',
                     fontSize:'12px',
-                    fontFamily: 'Poppins'
+                    fontFamily: 'Poppins',
+                    color:'black'
                   }}
               >
                 {result.recipe.ingredients.length} ingredients
@@ -100,7 +107,6 @@ const RecipeCard = ({loading,results,count}) => {
               <Typography 
                   variant="body1" 
                   component="div"
-                  className='recipe__title'
                   sx={{
                     textAlign:'center',
                     marginTop:'5px',
@@ -112,14 +118,13 @@ const RecipeCard = ({loading,results,count}) => {
               </Typography>
 
             </CardContent>
+            </Link>
+            
           ))}
         </div>
       )}
-      {count === 0 && (
-        <div className='empty'>No Recipes Found</div>
-      )}
     </div>
-  )
+  ) 
 }
 
 export default RecipeCard
