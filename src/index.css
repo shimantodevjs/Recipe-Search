@@ -9,6 +9,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+
 .navBar{
     padding: 15px 20px;
     background-color: #1167b1;
@@ -98,7 +99,33 @@ button{
 .recipePage__content{
          display: flex;
          align-items: center;
-         justify-content: center;
+         justify-content: space-evenly;
+         margin-top: 10px;
+        text-align: center;
+}
+
+.info__box{
+    background-color: #d0efff;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:20px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px ;
+}
+
+.ingridients__info,.calories__info,.type__info{
+    border-right: 1px solid rgba(181, 183, 186, 0.5);
+}
+
+.info__box ul{
+    list-style:circle;
 }
 
 @media screen and (max-width: 481px) {
@@ -134,13 +161,37 @@ button{
         padding-bottom: 10px;
     }
 
-    .main__content{
-        padding-top: 150px;
+    .main__content {
+            padding-top: 150px;
+           
     }
 
     .recipe__card{
         grid-template-columns: 1fr;
     }
+
+    .recipePage__content{
+        flex-direction: column;
+        
+    }
+
+    .info__box {
+            margin: 50px 30px 0px;
+            grid-template-columns: 1fr;
+    }
+
+    .recipePage__content h3{
+        margin-top: 20px;
+    }
+
+        .ingridients__info,
+        .calories__info,
+        .type__info {
+            border-bottom: 1px solid rgba(181, 183, 186, 0.5);
+            border-right: none;
+            padding-bottom: 20px;
+        }
+    
 }
 
 @media only screen and (min-width: 500px) and (max-width: 900px){
@@ -148,5 +199,19 @@ button{
     .recipe__card {
             grid-template-columns: repeat(2,1fr);
             gap: 100px;
+        }
+    .info__box {
+            grid-template-columns: repeat(2,1fr);
+            gap: 0px;
+            margin: 50px 50px 0px;
+        }
+        .ingridients__info,
+        .calories__info,
+        .type__info {
+            border-right: none;
+        }
+        .ingridients__info,
+        .calories__info{
+            border-bottom: 1px solid rgba(181, 183, 186, 0.5);
         }
 }

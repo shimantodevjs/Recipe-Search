@@ -52,7 +52,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='app'>
       <Navbar
        query={query}
        onChangeHandler={onChangeHandler}

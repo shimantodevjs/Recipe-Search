@@ -1,11 +1,19 @@
-import React from 'react'
+import {useState,useEffect} from 'react'
 import { CardContent, Typography, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const RecipeCard = ({loading,results,count}) => {
+
+  const [imgLoading, setImgLoading] = useState(true);
+  const loadingGif = 'https://media.tenor.com/_dGu36t3VNEAAAAC/loading-buffering.gif';
+
+  useEffect(() => {
+    setImgLoading(true); // Reset isLoading state when results or loading prop changes
+  }, [results, loading]);
+
   return (
     <div>
-      {loading && <img src='https://media.tenor.com/wfEN4Vd_GYsAAAAC/loading.gif' className='empty'></img>}
+      {loading && <img src='https://media.tenor.com/YPOStjIfQ2IAAAAC/loading-waiting.gif' className='empty'></img>}
       {!loading && count === 0 && <div className='empty'>No Recipes Found</div>}
       {!loading && count > 0 && (
         <div
@@ -31,7 +39,7 @@ const RecipeCard = ({loading,results,count}) => {
                       className='recipe__card__content'
             >
 
-              <CardMedia component='img' src={result.recipe.image} />
+              <CardMedia component="img" src={imgLoading ? loadingGif : result.recipe.image} onLoad={() => setImgLoading(false)} />
               <Typography 
                   variant="body1" 
                   component="div"
@@ -70,7 +78,7 @@ const RecipeCard = ({loading,results,count}) => {
                     color:'black'
                   }}
               >
-                {result.recipe.calories.toFixed(2)} calories
+                {result.recipe.calories.toFixed(0)} calories
               </Typography>
 
               <div
