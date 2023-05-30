@@ -20,7 +20,7 @@ const RecipePage = ({ results }) => {
         selectedRecipe={selectedRecipe}
       />
       <RecipePageInfo
-         selectedRecipe={selectedRecipe}
+        selectedRecipe={selectedRecipe}
       />
     </div>
   );

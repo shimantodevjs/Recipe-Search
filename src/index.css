@@ -68,6 +68,7 @@ button{
     font-size: 30px;
 }
 
+
 .main__content{
     display: flex;
     align-items: center;
@@ -126,6 +127,17 @@ button{
 
 .info__box ul{
     list-style:circle;
+}
+
+.login__form{
+    width: 400px;
+    height: 450px;
+    background-color: #d0efff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 481px) {

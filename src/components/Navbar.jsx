@@ -1,8 +1,10 @@
-import React from 'react'
-import { Login, Search, DarkMode } from '@mui/icons-material';
+import { Login, Search } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({query,onChangeHandler,handleEnterSearch,handleSearch}) => {
+
+
+
   return (
     <div className='navBar'>
       <div className="navBar__container">
@@ -16,7 +18,7 @@ const Navbar = ({query,onChangeHandler,handleEnterSearch,handleSearch}) => {
       <div className="searchBar">
       <input 
             type="text" 
-            value={query} 
+            value={query}
             onChange={onChangeHandler} 
             onKeyDown={handleEnterSearch}
             placeholder='Hungry? Search here....'
@@ -30,8 +32,9 @@ const Navbar = ({query,onChangeHandler,handleEnterSearch,handleSearch}) => {
       </Link>
       </div>
       <div className='loginBtn'>
+      <Link to='/login'>
       <button><Login /></button>
-      <button><DarkMode/></button>
+      </Link>
       </div>
       </div>
     </div>
