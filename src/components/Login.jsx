@@ -34,7 +34,7 @@ const onSubmit = (data) => {
          }}
          >
   <div style={{ margin: '10px 0px' }}>
-  <label htmlFor="email" style={{ fontSize: '12px',marginBottom:'5px' }}>
+  <label htmlFor="email" style={{ fontSize: '12px',marginBottom:'5px', display:'block' }}>
       Email
   </label>
   <input
@@ -46,7 +46,8 @@ const onSubmit = (data) => {
       outline: 'none',
       borderBottom: '1px solid #efefef',
       width: '300px',
-      padding:'8px'
+      padding:'8px',
+      touchAction: 'manipulation',
     }}
   />
   {errors.email && (
@@ -85,7 +86,8 @@ const onSubmit = (data) => {
              outline: 'none',
              borderBottom: '1px solid #efefef',
              width: '300px',
-             padding:'8px'
+             padding:'8px',
+             touchAction: 'manipulation',
           }}
          />
       {errors.password &&(
