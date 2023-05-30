@@ -2,6 +2,7 @@ import {useEffect ,useState} from 'react'
 import { Route, Routes , useLocation } from "react-router-dom"
 import RecipePage from './pages/RecipePage';
 import LoginPage from './pages/LoginPage';
+import Homepage from './pages/Homepage';
 import Navbar from './components/Navbar';
 import RecipeCard from './components/RecipeCard';
 
@@ -47,7 +48,6 @@ const handleSearch = async () => {
 
   const handleEnterSearch = (e) => {
   if (e.key === 'Enter') {
-
     handleSearch();
   }
 };
@@ -71,7 +71,11 @@ const handleSearch = async () => {
      <div className='main__content'>
         <Routes>
           <Route
-            path='/'
+             path='/'
+             element={<Homepage />}
+          />
+          <Route
+            path='/recipepage'
             element={<RecipeCard 
                            results={results} 
                            loading={loading}
