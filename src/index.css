@@ -66,6 +66,7 @@ button{
 .empty{
     text-align: center;
     font-size: 30px;
+    padding-top: 100px;
 }
 
 
@@ -73,13 +74,13 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
 }
 
 .recipe__card {
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 30px;
+    padding-top: 100px;
 }
 
 .recipe__card__content:hover{
@@ -103,6 +104,7 @@ button{
          justify-content: space-evenly;
          margin-top: 10px;
         text-align: center;
+        padding-top: 100px;
 }
 
 .info__box{
@@ -138,6 +140,23 @@ button{
     align-items: center;
     justify-content: center;
     border-radius: 10px;
+    margin-top: 100px;
+}
+
+.home__main__content{
+    margin-top: 78px;
+    background-image: url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home__main__content h1{
+  font-size: 50px;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 481px) {
@@ -203,6 +222,13 @@ button{
             border-right: none;
             padding-bottom: 20px;
         }
+    .login__form{
+        margin: 20px 0px;
+    }
+
+    .home__main__content{
+        margin-top: -20px;
+    }
     
 }
 

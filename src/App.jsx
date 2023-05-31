@@ -70,10 +70,7 @@ const handleSearch = async () => {
 
      <div className='main__content'>
         <Routes>
-          <Route
-             path='/'
-             element={<Homepage />}
-          />
+         
           <Route
             path='/recipepage'
             element={<RecipeCard 
@@ -95,6 +92,13 @@ const handleSearch = async () => {
           />
         </Routes>
       </div>
+
+      <Routes>
+         <Route
+             path='/'
+             element={<Homepage />}
+          />
+    </Routes>
 
     </div>
   );
