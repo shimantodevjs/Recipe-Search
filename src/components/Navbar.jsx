@@ -16,6 +16,7 @@ const Navbar = ({query,onChangeHandler,handleEnterSearch,handleSearch}) => {
       <h1 className='title'>RECIPES</h1>
       </Link>
       <div className="searchBar">
+
       <Link to='/recipepage'>
       <input 
             type="text" 
@@ -28,6 +29,7 @@ const Navbar = ({query,onChangeHandler,handleEnterSearch,handleSearch}) => {
             }}
       />
       </Link>
+      
        <Link to='/recipepage'
            style={{
             textDecoration:'none'

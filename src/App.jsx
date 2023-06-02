@@ -34,7 +34,6 @@ const handleSearch = async () => {
 
     const response = await fetch(API_URL);
     const data = await response.json();
-    console.log(data);
     setResults(data.hits);
     setCount(data.count);
   } catch (error) {
@@ -70,6 +69,11 @@ const handleSearch = async () => {
 
      <div className='main__content'>
         <Routes>
+
+          <Route
+             path='/'
+             element={<Homepage />}
+          />
          
           <Route
             path='/recipepage'
@@ -83,7 +87,6 @@ const handleSearch = async () => {
             path='/recipepage/:recipeUri'
             element={<RecipePage 
                           results={results}
-                          handleEnterSearch={handleEnterSearch}
                           />}
           />
           <Route
@@ -92,13 +95,6 @@ const handleSearch = async () => {
           />
         </Routes>
       </div>
-
-      <Routes>
-         <Route
-             path='/'
-             element={<Homepage />}
-          />
-    </Routes>
 
     </div>
   );
