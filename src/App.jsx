@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import RecipeCard from './components/RecipeCard';
 
 
+
 function App() {
   
   const [query, setQuery] = useState('');
@@ -22,6 +23,7 @@ function App() {
   useEffect(()=>{
     window.scrollTo(0,0);
   },[pathname]);
+  
 
 
 const handleSearch = async () => {
@@ -45,11 +47,11 @@ const handleSearch = async () => {
 };
 
 
-  const handleEnterSearch = (e) => {
-  if (e.key === 'Enter') {
-    handleSearch();
-  }
-};
+//   const handleEnterSearch = (e) => {
+//   if (e.key === 'Enter') {
+//     handleSearch();
+//   }
+// };
 
   const onChangeHandler=(e)=>{
       setQuery(e.target.value)
@@ -61,7 +63,7 @@ const handleSearch = async () => {
     <Navbar
        query={query}
        onChangeHandler={onChangeHandler}
-       handleEnterSearch={handleEnterSearch}
+      //  handleEnterSearch={handleEnterSearch}
        handleSearch={handleSearch}
        darkMode={darkMode}
        setDarkMode={setDarkMode}

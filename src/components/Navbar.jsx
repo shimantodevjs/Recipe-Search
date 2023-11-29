@@ -17,18 +17,17 @@ const Navbar = ({query,onChangeHandler,handleEnterSearch,handleSearch}) => {
       </Link>
       <div className="searchBar">
 
-      <Link to='/recipepage'>
+      
       <input 
             type="text" 
             value={query}
             onChange={onChangeHandler} 
-            onKeyDown={handleEnterSearch}
+            // onKeyDown={handleEnterSearch}
             placeholder='Hungry? Search here....'
             style={{
               padding:'10px'
             }}
       />
-      </Link>
       
        <Link to='/recipepage'
            style={{
